@@ -39,6 +39,7 @@ function Payment() {
     event.preventDefault();
     setProcessing(true);
 
+    // eslint-disable-next-line no-unused-vars
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
@@ -80,7 +81,6 @@ function Payment() {
           Checkout (<Link to="/checkout">{basket?.length} items</Link>)
         </h1>
 
-        {/* Payment section - delivery address */}
         <div className="payment__section">
           <div className="payment__title">
             <h3>Delivery Address</h3>
@@ -92,7 +92,6 @@ function Payment() {
           </div>
         </div>
 
-        {/* Payment section - Review Items */}
         <div className="payment__section">
           <div className="payment__title">
             <h3>Review items and delivery</h3>
@@ -111,14 +110,11 @@ function Payment() {
           </div>
         </div>
 
-        {/* Payment section - Payment method */}
         <div className="payment__section">
           <div className="payment__title">
             <h3>Payment Method</h3>
           </div>
           <div className="payment__details">
-            {/* Stripe magic will go */}
-
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
 
@@ -136,7 +132,6 @@ function Payment() {
                 </button>
               </div>
 
-              {/* Errors */}
               {error && <div>{error}</div>}
             </form>
           </div>
